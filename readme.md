@@ -138,7 +138,8 @@
 	gif.on('finished', function(blob) {
 	  var image = new Image();
 	  image.src = URL.createObjectURL(blob);
-	
+	  image.width = 512;
+	  image.height = 512;
 	  var imageContainer = document.getElementById("imageContainer");
 	  imageContainer.innerHTML = '';
 	  imageContainer.appendChild(image);
