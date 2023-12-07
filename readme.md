@@ -115,9 +115,8 @@
 	        var randomValue = Math.floor(Math.random() * 256);
 	        var v = i*growthFactor;
 		var f = (dist+v);
-	        var f2 = (dist+v*hueShiftFactor);
 	        
-		var l = (f2)%1.0;
+		var l = (f)%1.0;
 	        var clr = lerpcolor(clr1,clr2,l);
 		if (l < 0) {
 			clr = [0,0,255];
