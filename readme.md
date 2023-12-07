@@ -84,6 +84,10 @@
   function lerpcolor(clr1,clr2, fac) {
     return [clr1[0]*(1-fac) + clr2[0]*fac,clr1[1]*(1-fac) + clr2[1]*fac,clr1[2]*(1-fac) + clr2[2]*fac];
   }
+
+	function mod(n, m) {
+	  return ((n % m) + m) % m;
+	}
   function generateRandomNoise() {
   // Create a canvas element
     var gif = new GIF({
@@ -116,7 +120,7 @@
 	        var v = i*growthFactor;
 		var f = (dist+v);
 	        
-		var l = (f)%1.0;
+		var l = mod(f,1.0);
 	        var clr = lerpcolor(clr1,clr2,l);
 		if (l < 0) {
 			clr = [0,0,255];
