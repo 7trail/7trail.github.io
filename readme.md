@@ -28,7 +28,7 @@
 
 <script>
 
-	const URL = " https://stimulatingcomplexdirectories-json-store-1--coder100.repl.co/db/a961b31c-6e2f-498a-93bc-8038431205ee ";
+	const URL = "https://stimulatingcomplexdirectories-json-store-1--coder100.repl.co/db/a961b31c-6e2f-498a-93bc-8038431205ee";
 
 (async () => {
   async function getDb() {
@@ -56,12 +56,6 @@
       "Content-Type": "application/json"
     },
     body:  JSON.stringify({ "nest": 5 })
-  });
-
-  console.log("Database Data:", await getDb());
-
-  await fetch(URL + "/e", {
-    method: "DELETE"
   });
 
   console.log("Database Data:", await getDb());
