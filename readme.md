@@ -44,7 +44,7 @@
     headers: {
       "Content-Type": "application/json"
     },
-    body: { "a": 5, "e": 6 }
+    body:  JSON.stringify({ "a": 5, "e": 6 })
   });
 
   console.log("Database Data:", await getDb());
@@ -55,7 +55,7 @@
     headers: {
       "Content-Type": "application/json"
     },
-    body: { "nest": 5 }
+    body:  JSON.stringify({ "nest": 5 })
   });
 
   console.log("Database Data:", await getDb());
