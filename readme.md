@@ -22,7 +22,7 @@
   <label for="colorPicker2">Color 2:</label>
   <input type="color" id="colorPicker2" value="#000000">
   <br>
-  <button onclick="generateRandomNoise()">Generate Spiral</button>
+  <button onclick="genSpiral()">Generate Spiral</button>
   <div id="imageContainer"></div>
   <p> test website??? wha?? </p>
 </body>
@@ -64,7 +64,9 @@
     const slider2 = document.getElementById('slider2');
     const colorPicker2 = document.getElementById('colorPicker2');
 
-	
+	function genSpiral() {
+		generateRandomNoise(slider1.value,slider2.value,colorPicker1.value,colorPicker2.value);
+	}
 	
   document.addEventListener('DOMContentLoaded', function () {
     // Find the div with the class 'wrapper'
