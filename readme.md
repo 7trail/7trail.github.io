@@ -27,7 +27,6 @@
   <br>
   <button onclick="genSpiral()">Generate Spiral</button>
   <div id="imageContainer"></div>
-  <p> test website??? wha?? </p>
 </body>
 
 <script>
