@@ -27,6 +27,11 @@
   <br>
   <button onclick="genSpiral()">Generate Spiral</button>
   <div id="imageContainer"></div>
+
+	<br>
+ <br>
+ <a href="/control.md">Control panel</a>
+  
 </body>
 
 <script>
