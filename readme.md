@@ -1,3 +1,7 @@
+<head>
+	<link rel="stylesheet" href="mainsite.css">
+</head>
+
 <body>
   <h1>anomaly</h1>
   <h2>spiral generator</h2>
