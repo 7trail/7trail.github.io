@@ -1,8 +1,6 @@
----
 title: control panel
 layout: page
-filename: /control.html
---- 
+permalink: /control.html
 
 <head>
 	<link rel="stylesheet" href="mainsite.css">
