@@ -1,5 +1,6 @@
 <head>
 	<link rel="stylesheet" href="mainsite.css">
+	<script src="gif.js?v=3"></script>
 </head>
 
 <body>
@@ -51,44 +52,62 @@
   }
   function generateRandomNoise() {
   // Create a canvas element
-    var canvas = document.createElement("canvas");
-    canvas.width = 128;
-    canvas.height = 128;
-    var ctx = canvas.getContext("2d");
-
-    var growthFactor = 0.2;
-    var hueShiftFactor = -0.1;
-    
-    // Generate random noise
-    for (var x = 0; x < 128; x++) {
-      for (var y = 0; y < 128; y++) {
-        var d = getDistance(x,64,y,64);
-        var a = angle(x,y,64,64);
-
-        var angleFactor = 90.0;
-        
-        var dist = ((d/64.0)+(a/angleFactor));
-        
-        var randomValue = Math.floor(Math.random() * 256);
-	var i = 0;
-        var v = i*growthFactor;
-	var f = (dist+v);
-        var f2 = (dist+v*hueShiftFactor);
-        
-
-        var clr = lerpcolor([255, 156, 175],[92, 0, 18],1-((f2+1)%1));
-        ctx.fillStyle = "rgb(" + Math.floor(clr[0]) + "," + Math.floor(clr[1]) + "," + Math.floor(clr[2]) + ")";
-        ctx.fillRect(x, y, 1, 1);
-      }
-    }
-  
+    var gif = new GIF({
+	  workers: 2,
+	  quality: 10
+	});
+	  for (let i = 0; i < 10; i++) {
+	    var canvas = document.createElement("canvas");
+	    canvas.width = 128;
+	    canvas.height = 128;
+	    var ctx = canvas.getContext("2d");
+	
+	    var growthFactor = 0.2;
+	    var hueShiftFactor = -0.1;
+	    
+	    // Generate random noise
+	    for (var x = 0; x < 128; x++) {
+	      for (var y = 0; y < 128; y++) {
+	        var d = getDistance(x,64,y,64);
+	        var a = angle(x,y,64,64);
+	
+	        var angleFactor = 90.0;
+	        
+	        var dist = ((d/64.0)+(a/angleFactor));
+	        
+	        var randomValue = Math.floor(Math.random() * 256);
+	        var v = i*growthFactor;
+		var f = (dist+v);
+	        var f2 = (dist+v*hueShiftFactor);
+	        
+	
+	        var clr = lerpcolor([255, 156, 175],[92, 0, 18],1-((f2+1)%1));
+	        ctx.fillStyle = "rgb(" + Math.floor(clr[0]) + "," + Math.floor(clr[1]) + "," + Math.floor(clr[2]) + ")";
+	        ctx.fillRect(x, y, 1, 1);
+	      }
+	    }
+  	
+	
+	// or a canvas element
+		gif.addFrame(canvas, {delay: 20});
+	  }
+	gif.on('finished', function(blob) {
+	  var image = new Image();
+	  image.src = URL.createObjectURL(blob);
+	
+	  var imageContainer = document.getElementById("imageContainer");
+	  imageContainer.innerHTML = '';
+	  imageContainer.appendChild(image);
+	});
+	
+	gif.render();
     // Create an image element and set its source to the canvas data URL
-    	var image = new Image();
+    	/*var image = new Image();
 	image.src = canvas.toDataURL();
 	
 	// Append the image to the HTML container
 	var imageContainer = document.getElementById("imageContainer");
 	imageContainer.innerHTML = '';
-	imageContainer.appendChild(image);
+	imageContainer.appendChild(image);*/
   }
 </script>
