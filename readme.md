@@ -44,7 +44,7 @@
     var theta = Math.atan2(dy, dx); // range (-PI, PI]
     theta *= 180 / Math.PI; // rads to degs, range (-180, 180]
     //if (theta < 0) theta = 360 + theta; // range [0, 360)
-    return theta;
+    return (theta+360) % 360;
   }
   function lerpcolor(clr1,clr2, fac) {
     return [clr1[0]*(1-fac) + clr2[0]*fac,clr1[1]*(1-fac) + clr2[1]*fac,clr1[2]*(1-fac) + clr2[2]*fac];
@@ -84,9 +84,8 @@
   
     // Create an image element and set its source to the canvas data URL
     	var image = new Image();
-    	image.src = canvas.toDataURL();
-	image.width = 512;
-	image.height = 512;
+	image.src = canvas.toDataURL();
+	
 	// Append the image to the HTML container
 	var imageContainer = document.getElementById("imageContainer");
 	imageContainer.innerHTML = '';
