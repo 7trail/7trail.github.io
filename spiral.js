@@ -1,4 +1,3 @@
-<script src="gif.js?v=3"></script>
 
 function hexToRgb(hex) {
 	    // Remove the hash symbol, if present
