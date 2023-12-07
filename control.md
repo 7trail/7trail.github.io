@@ -78,6 +78,17 @@ permalink: /control.html
             footerElement.remove();
         }
     }
+function generateRandomString(length) {
+      const characters = 'BCDFGHJKLMNPQRSTVWXZ0123456789';
+      let result = '';
+      for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        result += characters.charAt(randomIndex);
+      }
+      return result;
+    }
+
+	inputElement.value = generateRandomString(6);  
 });
   
 </script>
