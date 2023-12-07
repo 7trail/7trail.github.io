@@ -5,3 +5,7 @@ p {
 img {
   image-rendering: crisp-edges;
 }
+
+body {
+  align-content: center;
+}
