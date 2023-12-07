@@ -30,7 +30,7 @@
 
 	<br>
  <br>
- <a href="7trail.github.io/control.html">Control panel</a>
+ <a href="/control.md">Control panel</a>
   
 </body>
 
