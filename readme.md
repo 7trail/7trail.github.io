@@ -117,8 +117,14 @@
 		var f = (dist+v);
 	        var f2 = (dist+v*hueShiftFactor);
 	        
-	
-	        var clr = lerpcolor(clr1,clr2,1-((f2+1)%1));
+		var l = 1-((f2+1)%1);
+	        var clr = lerpcolor(clr1,clr2,l);
+		if (l < 0) {
+			clr = [0,0,255];
+		}
+		if (l > 1) {
+			clr = [0,255,0];
+		}
 	        ctx.fillStyle = "rgb(" + Math.floor(clr[0]) + "," + Math.floor(clr[1]) + "," + Math.floor(clr[2]) + ")";
 	        ctx.fillRect(x, y, 1, 1);
 	      }
