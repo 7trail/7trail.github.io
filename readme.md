@@ -92,7 +92,7 @@
 	});
 	var growthFactor = slider1.value;
 	var angleFactor = slider2.value;
-	var hueShiftFactor = -0.1;
+	var hueShiftFactor = 0.1;
 	var clr1 = hexToRgb(colorPicker1.value);
 	var clr2 = hexToRgb(colorPicker2.value);
 	  for (let i = 0; i < 100; i++) {
