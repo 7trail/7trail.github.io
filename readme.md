@@ -31,8 +31,8 @@
     }
 });
   function getDistance(x1,x2,y1,y2) {
-    var a = x1 - x2;
-    var b = y1 - y2;
+    var a = x2 - x1;
+    var b = y2 - y1;
     
     var c = Math.sqrt( a*a + b*b );
     return c;
@@ -83,12 +83,13 @@
     }
   
     // Create an image element and set its source to the canvas data URL
-    var image = new Image();
-    image.src = canvas.toDataURL();
-  
-    // Append the image to the HTML container
-    var imageContainer = document.getElementById("imageContainer");
-    imageContainer.innerHTML = '';
-    imageContainer.appendChild(image);
+    	var image = new Image();
+    	image.src = canvas.toDataURL();
+	image.width = 512;
+	image.height = 512;
+	// Append the image to the HTML container
+	var imageContainer = document.getElementById("imageContainer");
+	imageContainer.innerHTML = '';
+	imageContainer.appendChild(image);
   }
 </script>
