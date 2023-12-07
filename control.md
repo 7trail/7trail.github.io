@@ -1,7 +1,8 @@
-title: control panel
+--------------------------
 layout: page
+title: "control panel"
 permalink: /control.html
-
+--------------------------
 <head>
 	<link rel="stylesheet" href="mainsite.css">
 	<script src="gif.js?v=3"></script>
