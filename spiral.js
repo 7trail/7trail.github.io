@@ -36,17 +36,17 @@ function getDistance(x1,x2,y1,y2) {
 	function mod(n, m) {
 	  return ((n % m) + m) % m;
 	}
-  function generateRandomNoise() {
+  function generateRandomNoise(sl1,sl2,picker1,picker2) {
   // Create a canvas element
     var gif = new GIF({
 	  workers: 2,
 	  quality: 10
 	});
-	var growthFactor = slider1.value * 0.1;
-	var angleFactor = 360.0/slider2.value;
+	var growthFactor = sl1 * 0.1;
+	var angleFactor = 360.0/sl2;
 	var hueShiftFactor = -0.1;
-	var clr1 = hexToRgb(colorPicker1.value);
-	var clr2 = hexToRgb(colorPicker2.value);
+	var clr1 = hexToRgb(picker1);
+	var clr2 = hexToRgb(picker2);
 	  for (let i = 0; i < 100; i++) {
 	    var canvas = document.createElement("canvas");
 	    canvas.width = 128;
