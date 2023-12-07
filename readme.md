@@ -3,7 +3,7 @@
 	<script src="gif.js?v=3"></script>
 	<script src="spiral.js"></script>
 </head>
-
+ 
 <body>
   <h1>anomaly</h1>
   <h2>spiral generator</h2>
