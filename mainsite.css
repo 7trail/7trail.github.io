@@ -8,4 +8,7 @@ img {
 
 body {
   align-content: center;
+  margin: auto;
+  width: 50%;
+  align-text: center;
 }
