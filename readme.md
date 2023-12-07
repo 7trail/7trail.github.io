@@ -1,3 +1,4 @@
+<html lang="en">
 <head>
 	<link rel="stylesheet" href="mainsite.css">
 	<script src="gif.js?v=3"></script>
@@ -70,3 +71,4 @@
 });
   
 </script>
+</html>
