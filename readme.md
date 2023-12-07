@@ -11,7 +11,7 @@
   <br>
 
   <label for="slider2">Spiral Amount:</label>
-  <input type="range" id="slider2" min="0" max="360" value="90">
+  <input type="range" id="slider2" min="2" max="24" value="4">
   <br>
 
   <label for="colorPicker1">Color 1:</label>
@@ -91,7 +91,7 @@
 	  quality: 10
 	});
 	var growthFactor = slider1.value;
-	var angleFactor = slider2.value;
+	var angleFactor = 360.0/slider2.value;
 	var hueShiftFactor = 0.1;
 	var clr1 = hexToRgb(colorPicker1.value);
 	var clr2 = hexToRgb(colorPicker2.value);
