@@ -6,12 +6,46 @@
 <body>
   <h1>anomaly</h1>
   <h2>spiral generator</h2>
-  <button onclick="generateRandomNoise()">Generate Random Noise Image</button>
+  <label for="slider1">Speed:</label>
+  <input type="range" id="slider1" min="0" max="3" value="0.2" step="0.1">
+  <br>
+
+  <label for="slider2">Spiral Amount:</label>
+  <input type="range" id="slider2" min="0" max="360" value="90">
+  <br>
+
+  <label for="colorPicker1">Color 1:</label>
+  <input type="color" id="colorPicker1" value="#ff0000">
+  <br>
+
+  <label for="colorPicker2">Color 2:</label>
+  <input type="color" id="colorPicker2" value="#000000">
+  <br>
+  <button onclick="generateRandomNoise()">Generate Spiral</button>
   <div id="imageContainer"></div>
   <p> test website??? wha?? </p>
 </body>
 
 <script>
+    const slider1 = document.getElementById('slider1');
+    const colorPicker1 = document.getElementById('colorPicker1');
+    const slider2 = document.getElementById('slider2');
+    const colorPicker2 = document.getElementById('colorPicker2');
+
+	function hexToRgb(hex) {
+	    // Remove the hash symbol, if present
+	    hex = hex.replace(/^#/, '');
+	
+	    // Parse the hex value into individual color components
+	    var bigint = parseInt(hex, 16);
+	    var r = (bigint >> 16) & 255;
+	    var g = (bigint >> 8) & 255;
+	    var b = bigint & 255;
+	
+	    // Return the RGB values as an object
+	    return [r,g,b];
+	}
+	
   document.addEventListener('DOMContentLoaded', function () {
     // Find the div with the class 'wrapper'
     var wrapperDiv = document.querySelector('.wrapper');
@@ -56,14 +90,17 @@
 	  workers: 2,
 	  quality: 10
 	});
-	  for (let i = 0; i < 10; i++) {
+	var growthFactor = slider1.value;
+	var angleFactor = slider2.value;
+	var hueShiftFactor = -0.1;
+	var clr1 = hexToRgb(colorPicker1.value);
+	var clr2 = hexToRgb(colorPicker2.value);
+	  for (let i = 0; i < 100; i++) {
 	    var canvas = document.createElement("canvas");
 	    canvas.width = 128;
 	    canvas.height = 128;
 	    var ctx = canvas.getContext("2d");
 	
-	    var growthFactor = 0.2;
-	    var hueShiftFactor = -0.1;
 	    
 	    // Generate random noise
 	    for (var x = 0; x < 128; x++) {
@@ -71,7 +108,7 @@
 	        var d = getDistance(x,64,y,64);
 	        var a = angle(x,y,64,64);
 	
-	        var angleFactor = 90.0;
+	        
 	        
 	        var dist = ((d/64.0)+(a/angleFactor));
 	        
@@ -81,7 +118,7 @@
 	        var f2 = (dist+v*hueShiftFactor);
 	        
 	
-	        var clr = lerpcolor([255, 156, 175],[92, 0, 18],1-((f2+1)%1));
+	        var clr = lerpcolor(clr1,clr2,1-((f2+1)%1));
 	        ctx.fillStyle = "rgb(" + Math.floor(clr[0]) + "," + Math.floor(clr[1]) + "," + Math.floor(clr[2]) + ")";
 	        ctx.fillRect(x, y, 1, 1);
 	      }
