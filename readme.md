@@ -28,38 +28,33 @@
 
 <script>
 
-	const URL = "https://stimulatingcomplexdirectories-json-store-1--coder100.repl.co/db/a961b31c-6e2f-498a-93bc-8038431205ee";
+	const url = "https://stimulatingcomplexdirectories-json-store-1--coder100.repl.co/db/a961b31c-6e2f-498a-93bc-8038431205ee";
+	async function getDb(offset="") {
+	    return await fetch(url+offset, {
+	      method: "GET"
+	    }).then(n => n.text());
+	  }
 
-(async () => {
-  async function getDb() {
-    return await fetch(URL, {
-      method: "GET"
-    }).then(n => n.text());
-  }
+	function getData(id) {
+		(async () => {
+		  db = await getDb("/"+id);
+		  console.log(db["test"]);
+		  return db;
+		})();
+		return {};
+	}
 
-  console.log("Database Data:", await getDb());
-
-  await fetch(URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body:  JSON.stringify({ "a": 5, "e": 6 })
-  });
-
-  console.log("Database Data:", await getDb());
-
-  // This is equivalent to { "b": { "c": { "nest": 5 } } }
-  await fetch(URL + "/b/c", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body:  JSON.stringify({ "nest": 5 })
-  });
-
-  console.log("Database Data:", await getDb());
-})();
+	function postData(id, data) {
+		(async () => {
+		  await fetch(url+"/"+id, {
+		    method: "POST",
+		    headers: {
+		      "Content-Type": "application/json"
+		    },
+		    body: JSON.stringify(data)
+		  });
+		})();
+	}
 
 	//Where the real code begins
 	
