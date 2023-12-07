@@ -7,7 +7,7 @@
   <h1>anomaly</h1>
   <h2>spiral generator</h2>
   <label for="slider1">Speed:</label>
-  <input type="range" id="slider1" min="0" max="3" value="0.2" step="0.1">
+  <input type="range" id="slider1" min="-1" max="1" value="0.2" step="0.1">
   <br>
 
   <label for="slider2">Spiral Amount:</label>
@@ -90,7 +90,7 @@
 	  workers: 2,
 	  quality: 10
 	});
-	var growthFactor = slider1.value;
+	var growthFactor = slider1.value * 0.1;
 	var angleFactor = 360.0/slider2.value;
 	var hueShiftFactor = -0.1;
 	var clr1 = hexToRgb(colorPicker1.value);
