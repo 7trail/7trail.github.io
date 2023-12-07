@@ -27,6 +27,48 @@
 </body>
 
 <script>
+
+	const URL = " https://stimulatingcomplexdirectories-json-store-1--coder100.repl.co/db/a961b31c-6e2f-498a-93bc-8038431205ee ";
+
+(async () => {
+  async function getDb() {
+    return await fetch(URL, {
+      method: "GET"
+    }).then(n => n.text());
+  }
+
+  console.log("Database Data:", await getDb());
+
+  await fetch(URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: { "a": 5, "e": 6 }
+  });
+
+  console.log("Database Data:", await getDb());
+
+  // This is equivalent to { "b": { "c": { "nest": 5 } } }
+  await fetch(URL + "/b/c", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: { "nest": 5 }
+  });
+
+  console.log("Database Data:", await getDb());
+
+  await fetch(URL + "/e", {
+    method: "DELETE"
+  });
+
+  console.log("Database Data:", await getDb());
+})();
+
+	//Where the real code begins
+	
     const slider1 = document.getElementById('slider1');
     const colorPicker1 = document.getElementById('colorPicker1');
     const slider2 = document.getElementById('slider2');
