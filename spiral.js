@@ -36,7 +36,7 @@ function getDistance(x1,x2,y1,y2) {
 	function mod(n, m) {
 	  return ((n % m) + m) % m;
 	}
-  function generateRandomNoise(sl1,sl2,picker1,picker2) {
+  function generateRandomNoise(sl1,sl2,picker1,picker2,width=512,height=512) {
   // Create a canvas element
     var gif = new GIF({
 	  workers: 2,
@@ -86,8 +86,8 @@ function getDistance(x1,x2,y1,y2) {
 	gif.on('finished', function(blob) {
 	  var image = new Image();
 	  image.src = URL.createObjectURL(blob);
-	  image.width = 512;
-	  image.height = 512;
+	  image.width = width;
+	  image.height = height;
 	  var imageContainer = document.getElementById("imageContainer");
 	  imageContainer.innerHTML = '';
 	  imageContainer.appendChild(image);
