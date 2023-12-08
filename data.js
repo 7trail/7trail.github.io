@@ -1,19 +1,16 @@
 const url = "https://stimulatingcomplexdirectories-json-store-1--coder100.repl.co/db/a961b31c-6e2f-498a-93bc-8038431205ee";
 	async function getDb(offset="") {
-		var value = {};
-	     await fetch(url+offset, {
+	     return await fetch(url+offset, {
 	      method: "GET"
-	    }).then(r =>  {
-		value = r.json();
-		    
-	    });
-		return value;
+	    }).then(r =>  r.text());
 	  }
 
 	function getData(id) {
-		var val = (async () => {
+		var val = {};
+		
+		(async () => {
 		  db = await getDb("/"+id);
-		  return db;
+		  val = db;
 		})();
 		console.log(val);
 		return val;
