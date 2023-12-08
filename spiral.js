@@ -70,6 +70,7 @@ function getDistance(x1,x2,y1,y2) {
 	        
 		var l = mod(f,1.0);
 	        var clr = lerpcolor(clr1,clr2,l);
+		clr = lerpcolor(clr,[12,12,12],Math.min(d/64.0,0));
 		if (l < 0) {
 			clr = [0,0,255];
 		}
