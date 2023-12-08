@@ -65,7 +65,7 @@ function getDistance(x1,x2,y1,y2) {
 	        var dist = ((d/64.0)+(a/angleFactor));
 	        
 	        var randomValue = Math.floor(Math.random() * 256);
-	        var v = i*growthFactor;
+	        var v = (i*(100.0/frames))*growthFactor;
 		var f = (dist+v);
 	        
 		var l = mod(f,1.0);
