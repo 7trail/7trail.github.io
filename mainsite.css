@@ -13,3 +13,8 @@ body {
   align-text: center;
   font-family: Verdana, sans-serif;
 }
+
+html {
+  background-color:black;
+  color:white;
+}
