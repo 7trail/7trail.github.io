@@ -4,7 +4,7 @@ const url = "https://stimulatingcomplexdirectories-json-store-1--coder100.repl.c
 	    return await fetch(url+offset, {
 	      method: "GET"
 	    }).then(n => n.text());
-	  }
+	  } 
 
 	function getData(id) {
 		var val = "";
