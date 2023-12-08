@@ -45,13 +45,24 @@
     const colorPicker1 = document.getElementById('colorPicker1');
     const slider2 = document.getElementById('slider2');
     const colorPicker2 = document.getElementById('colorPicker2');
-
+	function generateRandomString(length) {
+	      const characters = 'BCDFGHJKLMNPQRSTVWXZ0123456789';
+	      let result = '';
+	      for (let i = 0; i < length; i++) {
+	        const randomIndex = Math.floor(Math.random() * characters.length);
+	        result += characters.charAt(randomIndex);
+	      }
+	      return result;
+	    }
+	
+		inputElement.value = generateRandomString(6);  
 	function sendSpiral() {
 		postData("data/"+inputElement.value,{
 			"sl1":slider1.value,
 			"sl2":slider2.value,
 			"picker1":colorPicker1.value,
-			"picker2":colorPicker2.value
+			"picker2":colorPicker2.value,
+			"value":generateRandomString(24)
 		});
 		generateRandomNoise(slider1.value,slider2.value,colorPicker1.value,colorPicker2.value,256,256,10);
 	}
@@ -74,17 +85,7 @@
             footerElement.remove();
         }
     }
-function generateRandomString(length) {
-      const characters = 'BCDFGHJKLMNPQRSTVWXZ0123456789';
-      let result = '';
-      for (let i = 0; i < length; i++) {
-        const randomIndex = Math.floor(Math.random() * characters.length);
-        result += characters.charAt(randomIndex);
-      }
-      return result;
-    }
 
-	inputElement.value = generateRandomString(6);  
 });
   
 </script>
