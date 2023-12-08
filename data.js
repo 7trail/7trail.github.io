@@ -6,16 +6,11 @@ const url = "https://stimulatingcomplexdirectories-json-store-1--coder100.repl.c
 	    }).then(n => n.text());
 	  } 
 
-	function getData(id) {
-		var val = "";
-		
-		(async () => {
+	async function getData(id) {
 		  db = await getDb("/"+id);
 		  console.log("DB: ", db);
-		  val = db;
-		})();
-		console.log("VAL: ",val);
-		return val;
+		return db;
+		
 	}
 
 	function postData(id, data) {
