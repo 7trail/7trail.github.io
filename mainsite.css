@@ -45,8 +45,12 @@ input {
   font-size: 16px;
 }
 
+label {
+  padding: 20px;
+}
+
 input[type="color"] {
-  padding: 10px;
+  padding: 20px;
 }
 
 input[type="range"] {
