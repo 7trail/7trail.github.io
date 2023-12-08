@@ -22,3 +22,9 @@ html {
   background-color:black;
   color:white;
 }
+
+.floatright {
+  float:right;
+  display:block;
+  padding:20px;
+}
