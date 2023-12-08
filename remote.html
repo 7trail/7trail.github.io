@@ -36,12 +36,12 @@
    
 	var intervalId = window.setInterval(async function(){
 		
-	      d = JSON.parse(await getData("data/"+inputElement.value));
+	      d = JSON.parse(await getData("data/"+inputElement.value.trim()));
 		
 		console.log(d);
 	      if ("data" in d && myData["data"]["value"] != d["data"]["value"]) {
 	        myData = d;
-	        generateRandomNoise(parseFloat(myData["data"]["sl1"]),parseFloat(myData["data"]["sl2"]),myData["data"]["picker1"],myData["data"]["picker2"],512, 512, 100, myData["data"]["lines"]);
+	        generateRandomNoise(parseFloat(myData["data"]["sl1"]),parseFloat(myData["data"]["sl2"]),myData["data"]["picker1"],myData["data"]["picker2"],512, 512, 100, myData["data"]["lines"], myData["data"]["picker3"]);
 	      }
   }, 5000);
   document.addEventListener('DOMContentLoaded', function () {
