@@ -31,6 +31,13 @@ body {
   font-family: Verdana, sans-serif;
 }
 
+a:link {
+  color: pink;
+}
+
+a:visited {
+  color: blue;
+}
 
 html {
   background-color: rgb(12,12,12);
