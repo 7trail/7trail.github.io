@@ -35,6 +35,7 @@
    
 	var intervalId = window.setInterval(function(){
 	      d = getData("data/"+inputElement.value)["data"];
+		console.log(d);
 	      if (myData != d) {
 	        myData = d;
 	        generateRandomNoise(parseFloat(myData["sl1"]),parseFloat(myData["sl2"]),myData["picker1"],myData["picker2"]);
