@@ -83,7 +83,7 @@ function getDistance(x1,x2,y1,y2) {
 		if (lines.length > 0) {
 		        var framesBetweenWords = Math.floor(frames/lines.length);
 		        if (i % framesBetweenWords < Math.ceil(5*(frames/100.0))) {
-		          if newWord {
+		          if (newWord) {
 		            wordIndex = (wordIndex+1)%lines.length;
 		            newWord = false;
 			  }
