@@ -36,7 +36,7 @@ function getDistance(x1,x2,y1,y2) {
 	function mod(n, m) {
 	  return ((n % m) + m) % m;
 	}
-  function generateRandomNoise(sl1,sl2,picker1,picker2,width=512,height=512,frames=100) {
+  function generateRandomNoise(sl1,sl2,picker1,picker2,width=512,height=512,frames=100, lines=[]) {
   // Create a canvas element
     var gif = new GIF({
 	  workers: 2,
@@ -47,6 +47,7 @@ function getDistance(x1,x2,y1,y2) {
 	var hueShiftFactor = -0.1;
 	var clr1 = hexToRgb(picker1);
 	var clr2 = hexToRgb(picker2);
+	  var newWord = true
 	  for (let i = 0; i < frames; i++) {
 	    var canvas = document.createElement("canvas");
 	    canvas.width = 128;
@@ -78,6 +79,23 @@ function getDistance(x1,x2,y1,y2) {
 	        ctx.fillRect(x, y, 1, 1);
 	      }
 	    }
+
+		  var text = "Hello, Center!";
+
+		// Font settings
+		ctx.font = "20px Arial";
+		ctx.fillStyle = "#ffffff"; // Text color
+	
+		// Calculate the text width and height
+		var textWidth = ctx.measureText(text).width;
+		var textHeight = parseInt(ctx.font);
+	
+		// Calculate the center coordinates
+		var centerX = (canvas.width - textWidth) / 2;
+		var centerY = (canvas.height + textHeight) / 2;
+	
+		// Draw the text at the center
+		ctx.fillText(text, centerX, centerY);
   	
 	
 	// or a canvas element
