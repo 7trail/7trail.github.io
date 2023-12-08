@@ -36,7 +36,7 @@ function getDistance(x1,x2,y1,y2) {
 	function mod(n, m) {
 	  return ((n % m) + m) % m;
 	}
-  function generateRandomNoise(sl1,sl2,picker1,picker2,width=512,height=512) {
+  function generateRandomNoise(sl1,sl2,picker1,picker2,width=512,height=512,frames=100) {
   // Create a canvas element
     var gif = new GIF({
 	  workers: 2,
@@ -47,7 +47,7 @@ function getDistance(x1,x2,y1,y2) {
 	var hueShiftFactor = -0.1;
 	var clr1 = hexToRgb(picker1);
 	var clr2 = hexToRgb(picker2);
-	  for (let i = 0; i < 100; i++) {
+	  for (let i = 0; i < frames; i++) {
 	    var canvas = document.createElement("canvas");
 	    canvas.width = 128;
 	    canvas.height = 128;
