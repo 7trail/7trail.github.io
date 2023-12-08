@@ -1,7 +1,7 @@
 @media only screen and (max-width: 600px) {
   
     .aspect-ratio-container img {
-      display: block;
+      object-fit:contain;
       width: 90%;
   height: 90%;
     }
