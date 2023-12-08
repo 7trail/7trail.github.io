@@ -9,9 +9,13 @@
 <body>
   <h1>anomaly</h1>
   <h2>spiral control panel</h2>
-  <h3>on this page, you can synchronize and control a spiral that another individual is viewing. share a room code, and you're set. enjoy.</h3>
+  <h3>on this page, you can synchronize and control a spiral that another individual is viewing. share a room code, push the button, and you're set. enjoy.</h3>
 	<br><br><br>
 
+
+ <div id="imageContainer" class="floatright">
+	  <p>What they see (low-frames):</p>
+  </div>	
   <label for="textInput">Enter Room Code:</label>
   <input type="text" id="textInput" placeholder="Type something...">
   <br>
@@ -36,9 +40,7 @@
     <textarea id="multilineInput" rows="5" cols="50"></textarea>
 	<br>
   <button onclick="sendSpiral()">Send Updated Spiral</button>
-  <div id="imageContainer" class="floatright">
-	  <p>What they see (low-frames):</p>
-  </div>
+  
 </body>
 
 <script>
