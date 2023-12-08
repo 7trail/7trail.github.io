@@ -9,13 +9,13 @@ img {
     -ms-interpolation-mode: nearest-neighbor;
   width:75%;
   height:75%;
-}
-
-body {
   display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+}
+
+body {
+  
   width: 50%;
   align-text: center;
   font-family: Verdana, sans-serif;
