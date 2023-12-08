@@ -9,10 +9,9 @@ const url = "https://stimulatingcomplexdirectories-json-store-1--coder100.repl.c
 		var val = {};
 		 (async () => {
 		  db = await getDb("/"+id);
-		  console.log(db);
 		  val = db;
 		})();
-		return val;
+		return JSON.parse(val);
 	}
 
 	function postData(id, data) {
