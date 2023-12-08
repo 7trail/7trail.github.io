@@ -36,7 +36,7 @@ function getDistance(x1,x2,y1,y2) {
 	function mod(n, m) {
 	  return ((n % m) + m) % m;
 	}
-  function generateRandomNoise(sl1,sl2,picker1,picker2,width=512,height=512,frames=100, lines=[]) {
+  function generateRandomNoise(sl1,sl2,picker1,picker2,width=512,height=512,frames=100, lines=[], textColor="#ffffff") {
   // Create a canvas element
     var gif = new GIF({
 	  workers: 2,
@@ -88,8 +88,8 @@ function getDistance(x1,x2,y1,y2) {
 		            newWord = false;
 			  }
 		          var text = lines[wordIndex];
-		          ctx.font = "20px Arial";
-			ctx.fillStyle = "#ffffff"; // Text color
+		          ctx.font = "16px Arial";
+			ctx.fillStyle = textColor; // Text color
 			
 			// Calculate the text width and height
 			var textWidth = ctx.measureText(text).width;
