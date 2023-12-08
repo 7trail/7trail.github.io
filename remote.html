@@ -37,7 +37,7 @@
 	      d = getData("data/"+inputElement.value)["data"];
 	      if (myData != d) {
 	        myData = d;
-	        generateRandomNoise(myData["sl1"],myData["sl2"],myData["picker1"],myData["picker2"]);
+	        generateRandomNoise(parseFloat(myData["sl1"]),parseFloat(myData["sl2"]),myData["picker1"],myData["picker2"]);
 	      }
   }, 5000);
   document.addEventListener('DOMContentLoaded', function () {
