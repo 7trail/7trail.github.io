@@ -81,7 +81,7 @@ function getDistance(x1,x2,y1,y2) {
   	
 	
 	// or a canvas element
-		gif.addFrame(canvas, {delay: 20});
+		gif.addFrame(canvas, {delay: 20*(100.0/frames)});
 	  }
 	gif.on('finished', function(blob) {
 	  var image = new Image();
