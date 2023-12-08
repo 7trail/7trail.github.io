@@ -47,7 +47,8 @@ function getDistance(x1,x2,y1,y2) {
 	var hueShiftFactor = -0.1;
 	var clr1 = hexToRgb(picker1);
 	var clr2 = hexToRgb(picker2);
-	  var newWord = true
+	  var newWord = true;
+	  var wordIndex = 0;
 	  for (let i = 0; i < frames; i++) {
 	    var canvas = document.createElement("canvas");
 	    canvas.width = 128;
@@ -79,24 +80,33 @@ function getDistance(x1,x2,y1,y2) {
 	        ctx.fillRect(x, y, 1, 1);
 	      }
 	    }
+		if (lines.length > 0) {
+		        var framesBetweenWords = Math.floor(frames/lines.length);
+		        if (i % framesBetweenWords < Math.ceil(5*(frames/100.0))) {
+		          if newWord {
+		            wordIndex = (wordIndex+1)%lines.length;
+		            newWord = false;
+			  }
+		          var text = lines[wordIndex];
+		          ctx.font = "20px Arial";
+			ctx.fillStyle = "#ffffff"; // Text color
+			
+			// Calculate the text width and height
+			var textWidth = ctx.measureText(text).width;
+			var textHeight = parseInt(ctx.font);
+			
+				// Calculate the center coordinates
+			var centerX = (canvas.width - textWidth) / 2;
+			var centerY = (canvas.height + textHeight) / 2;
+			
+				// Draw the text at the center
+			ctx.fillText(text, centerX, centerY);
+			}
+		        else {
+		          newWord = true;
 
-		  var text = "Hello, Center!";
-
-		// Font settings
-		ctx.font = "20px Arial";
-		ctx.fillStyle = "#ffffff"; // Text color
-	
-		// Calculate the text width and height
-		var textWidth = ctx.measureText(text).width;
-		var textHeight = parseInt(ctx.font);
-	
-		// Calculate the center coordinates
-		var centerX = (canvas.width - textWidth) / 2;
-		var centerY = (canvas.height + textHeight) / 2;
-	
-		// Draw the text at the center
-		ctx.fillText(text, centerX, centerY);
-  	
+			}
+		}
 	
 	// or a canvas element
 		gif.addFrame(canvas, {delay: 20*(100.0/frames)});
