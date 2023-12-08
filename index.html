@@ -31,6 +31,9 @@
   <label for="colorPicker2">Color 2:</label>
   <input type="color" id="colorPicker2" value="#000000">
   <br>
+<label for="multilineInput">Enter phrases (1/line):</label>
+    <textarea id="multilineInput" rows="5" cols="50"></textarea>
+	<br>
   <button onclick="genSpiral()">Generate Spiral</button>
   <div id="imageContainer"></div>
 
@@ -50,9 +53,16 @@
     const colorPicker1 = document.getElementById('colorPicker1');
     const slider2 = document.getElementById('slider2');
     const colorPicker2 = document.getElementById('colorPicker2');
-
+	function splitLines() {
+	      // Get the input value from the textarea
+	      var inputText = document.getElementById('multilineInput').value;
+	
+	      // Split the input text into an array by lines
+	      var linesArray = inputText.split('\n');
+		return linesArray;
+	}
 	function genSpiral() {
-		generateRandomNoise(slider1.value,slider2.value,colorPicker1.value,colorPicker2.value);
+		generateRandomNoise(slider1.value,slider2.value,colorPicker1.value,colorPicker2.value, 512, 512, 100, splitLines());
 	}
 	
   document.addEventListener('DOMContentLoaded', function () {
