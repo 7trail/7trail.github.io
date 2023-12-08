@@ -28,3 +28,16 @@ html {
   display:block;
   padding:20px;
 }
+
+input {
+  font-size: 16px;
+}
+
+input[type="color"] {
+  padding: 10px;
+}
+
+input[type="range"] {
+  width: 150px;
+  padding: 20px;
+}
