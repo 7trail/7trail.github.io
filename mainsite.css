@@ -1,23 +1,11 @@
 @media only screen and (max-width: 600px) {
   
-
-  .aspect-ratio-container {
-      position: relative;
-      width: 90%;
-      margin: auto;
-    }
-
     .aspect-ratio-container img {
-      width: 100%;
-      height: auto;
       display: block;
+      width: 90%;
+  height: 90%;
     }
 
-    .aspect-ratio-container::before {
-      content: "";
-      display: block;
-      padding-bottom: 100%; /* This ensures a 1:1 aspect ratio */
-    }
 }
 
 /* Desktop styles */
