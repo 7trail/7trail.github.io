@@ -34,11 +34,12 @@
 	inputElement.value = generateRandomString(6);  
    
 	var intervalId = window.setInterval(function(){
-	      d = getData("data/"+inputElement.value)["data"];
+	      d = JSON.parse(getData("data/"+inputElement.value));
+		
 		console.log(d);
 	      if (myData != d) {
 	        myData = d;
-	        generateRandomNoise(parseFloat(myData["sl1"]),parseFloat(myData["sl2"]),myData["picker1"],myData["picker2"]);
+	        generateRandomNoise(parseFloat(myData["data"]["sl1"]),parseFloat(myData["data"]["sl2"]),myData["data"]["picker1"],myData["data"]["picker2"]);
 	      }
   }, 5000);
   document.addEventListener('DOMContentLoaded', function () {
