@@ -33,8 +33,9 @@
   myData = {};
 	inputElement.value = generateRandomString(6);  
    
-	var intervalId = window.setInterval(function(){
-	      d = JSON.parse(getData("data/"+inputElement.value));
+	var intervalId = window.setInterval(async function(){
+		
+	      d = JSON.parse(await getData("data/"+inputElement.value));
 		
 		console.log(d);
 	      if (myData != d) {
