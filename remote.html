@@ -30,7 +30,7 @@
       }
       return result;
     }
-  myData = {};
+  myData = {"data": {"value":-1}};
 	inputElement.value = generateRandomString(6);  
    
 	var intervalId = window.setInterval(async function(){
@@ -38,7 +38,7 @@
 	      d = JSON.parse(await getData("data/"+inputElement.value));
 		
 		console.log(d);
-	      if (myData != d) {
+	      if ("data" in d && myData["data"]["value"] != d["data"]["value"]) {
 	        myData = d;
 	        generateRandomNoise(parseFloat(myData["data"]["sl1"]),parseFloat(myData["data"]["sl2"]),myData["data"]["picker1"],myData["data"]["picker2"]);
 	      }
