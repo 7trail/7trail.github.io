@@ -11,9 +11,9 @@ const url = "https://stimulatingcomplexdirectories-json-store-1--coder100.repl.c
 		
 		(async () => {
 		  db = await getDb("/"+id);
-		  val = db;
+		  console.log("DB: ", db);
 		})();
-		console.log(val);
+		console.log("VAL: ",val);
 		return val;
 	}
 
