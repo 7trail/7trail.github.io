@@ -7,11 +7,9 @@ img {
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
     -ms-interpolation-mode: nearest-neighbor;
-  width:75%;
-  height:75%;
-  display: flex;
-    align-items: center;
-    justify-content: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 body {
