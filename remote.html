@@ -20,7 +20,7 @@
 <script>
 
   const inputElement = document.getElementById('textInput');
-
+  console.log(getData("data"));
   function generateRandomString(length) {
       const characters = 'BCDFGHJKLMNPQRSTVWXZ0123456789';
       let result = '';
@@ -34,12 +34,11 @@
 	inputElement.value = generateRandomString(6);  
   
 	var intervalId = window.setInterval(function(){
-      d = getData("data/"+inputElement.value);
-	console.log(d);
-      if (myData != d) {
-        myData = d;
-        generateRandomNoise(myData["sl1"],myData["sl2"],myData["picker1"],myData["picker2"]);
-      }
+	      d = getData("data/"+inputElement.value);
+	      if (myData != d) {
+	        myData = d;
+	        generateRandomNoise(myData["sl1"],myData["sl2"],myData["picker1"],myData["picker2"]);
+	      }
   }, 5000);
   document.addEventListener('DOMContentLoaded', function () {
     // Find the div with the class 'wrapper'
