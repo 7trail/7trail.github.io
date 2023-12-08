@@ -13,33 +13,38 @@
 	<br><br><br>
 
 
- <div id="imageContainer" class="floatright">
-	  <p>What they see (low-frames):</p>
+ <div class="floatright">
+	  <p>what they see (low-frames):</p>
+	 <div  id="imageContainer"> </div>
   </div>	
-  <label for="textInput">Enter Room Code:</label>
-  <input type="text" id="textInput" placeholder="Type something...">
+  <label for="textInput">enter room code:</label>
+  <input type="text" id="textInput" placeholder="type something...">
   <br>
  
-  <label for="slider1">Speed:</label>
+  <label for="slider1">speed:</label>
   <input type="range" id="slider1" min="-1" max="1" value="0.2" step="0.1">
   <br>
 
-  <label for="slider2">Spiral Amount:</label>
+  <label for="slider2">spiral Amount:</label>
   <input type="range" id="slider2" min="2" max="24" value="4">
   <br>
 
-  <label for="colorPicker1">Color 1:</label>
+  <label for="colorPicker1">color 1:</label>
   <input type="color" id="colorPicker1" value="#ff0000">
   <br>
 
-  <label for="colorPicker2">Color 2:</label>
+  <label for="colorPicker2">color 2:</label>
   <input type="color" id="colorPicker2" value="#000000">
   <br>
 
-	<label for="multilineInput">Enter phrases (1/line):</label>
+	<label for="colorPicker3">text color:</label>
+  <input type="color" id="colorPicker3" value="#ffffff">
+  <br>
+
+	<label for="multilineInput">enter lines (1/line):</label>
     <textarea id="multilineInput" rows="5" cols="50"></textarea>
 	<br>
-  <button onclick="sendSpiral()">Send Updated Spiral</button>
+  <button onclick="sendSpiral()">send updated spiral</button>
   
 </body>
 
@@ -53,6 +58,7 @@
     const colorPicker1 = document.getElementById('colorPicker1');
     const slider2 = document.getElementById('slider2');
     const colorPicker2 = document.getElementById('colorPicker2');
+	const colorPicker3 = document.getElementById('colorPicker3');
 	function splitLines() {
 	      // Get the input value from the textarea
 	      var inputText = document.getElementById('multilineInput').value;
@@ -78,10 +84,11 @@
 			"sl2":slider2.value,
 			"picker1":colorPicker1.value,
 			"picker2":colorPicker2.value,
+			"picker3":colorPicker2.value,
 			"value":generateRandomString(24),
 			"lines":splitLines()
 		});
-		generateRandomNoise(slider1.value,slider2.value,colorPicker1.value,colorPicker2.value,256,256,10);
+		generateRandomNoise(slider1.value,slider2.value,colorPicker1.value,colorPicker2.value,256,256,10,colorPicker3.value);
 	}
 	
   document.addEventListener('DOMContentLoaded', function () {
