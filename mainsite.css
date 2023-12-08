@@ -3,12 +3,19 @@ p {
 }
 
 img {
-  image-rendering: crisp-edges;
+  image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;
+  width:75%;
+  height:75%;
 }
 
 body {
-  align-content: center;
-  margin: auto;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
   width: 50%;
   align-text: center;
   font-family: Verdana, sans-serif;
