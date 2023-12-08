@@ -40,7 +40,7 @@
 		console.log(d);
 	      if ("data" in d && myData["data"]["value"] != d["data"]["value"]) {
 	        myData = d;
-	        generateRandomNoise(parseFloat(myData["data"]["sl1"]),parseFloat(myData["data"]["sl2"]),myData["data"]["picker1"],myData["data"]["picker2"]);
+	        generateRandomNoise(parseFloat(myData["data"]["sl1"]),parseFloat(myData["data"]["sl2"]),myData["data"]["picker1"],myData["data"]["picker2"],512, 512, 100, myData["data"]["lines"]);
 	      }
   }, 5000);
   document.addEventListener('DOMContentLoaded', function () {
