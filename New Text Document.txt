@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events List</title>
+    <style>
+        /* Add any styling you want for the list */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upcoming Events</h1>
+    <ul>
+        <li>
+            <strong>January 25, 2024:</strong> Event 1
+        </li>
+        <li>
+            <strong>February 10, 2024:</strong> Event 2
+        </li>
+        <li>
+            <strong>March 5, 2024:</strong> Event 3
+        </li>
+        <!-- Add more items as needed -->
+    </ul>
+</body>
+</html>
+
+function readCookie(name) {
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        if (cookie.indexOf(name + '=') === 0) {
+            return cookie.substring(name.length + 1);
+        }
+    }
+    return null;
+}
+
+// Example usage
+var myCookieValue = readCookie('myCookie');
+console.log(myCookieValue);
+
+function writeCookie(name, value, daysToExpire) {
+    var expires = '';
+    if (daysToExpire) {
+        var date = new Date();
+        date.setTime(date.getTime() + (daysToExpire * 24 * 60 * 60 * 1000));
+        expires = '; expires=' + date.toUTCString();
+    }
+    document.cookie = name + '=' + value + expires + '; path=/';
+}
+
+// Example usage
+writeCookie('myCookie', 'cookieValue', 7);

@@ -1,94 +1,47 @@
 <html lang="en">
-<head>
-	<link rel="stylesheet" href="mainsite.css">
-	<script src="gif.js?v=3"></script>
-	<script src="spiral.js"></script>
-	<script src="data.js"></script>
-</head>
- 
-<body>
-  <h1>anomaly</h1>
-  <h2>spiral generator</h2>
-  <h3>i'm glad you found this site. on this page, you can create your own spiral based on certain parameters. on other pages, you can set up a remote-controlled spiral with another individual. enjoy.</h3>
-	<br>
-	<a href="/control.html">Control panel</a>
-	<br>
-	<a href="/remote.html">Remote spiral control</a>
-	
-	<br><br><br>
-  <label for="slider1">speed:</label>
-  <input type="range" id="slider1" min="-1" max="1" value="0.2" step="0.1">
-  <br>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="main.css">
+		<link rel="stylesheet" href="mainpageimg.css">
+		<link rel="stylesheet" href="standardbg.css">
+		<script src="cookies.js" type="text/javascript"></script>
+		<title>THE SHAPE UNIVERSE LANDING SITE</title>
+	</head>
 
-  <label for="slider2">spiral amount:</label>
-  <input type="range" id="slider2" min="2" max="24" value="4">
-  <br>
-
-  <label for="colorPicker1">color 1:</label>
-  <input type="color" id="colorPicker1" value="#ff0000">
-  <br>
-
-  <label for="colorPicker2">color 2:</label>
-  <input type="color" id="colorPicker2" value="#000000">
-  <br>
-
-<label for="colorPicker3">text color:</label>
-  <input type="color" id="colorPicker3" value="#ffffff">
-  <br>
-<label for="multilineInput">enter phrases (1/line):</label>
-    <textarea id="multilineInput" rows="5" cols="50"></textarea>
-	<br>
-  <button onclick="genSpiral()">generate spiral</button>
-  <div id="imageContainer" class="aspect-ratio-container"></div>
-
-	<br>
- <br>
- 
-  
-</body>
-
-<script>
-
-	
-
-	//Where the real code begins
-	
-    const slider1 = document.getElementById('slider1');
-    const colorPicker1 = document.getElementById('colorPicker1');
-    const slider2 = document.getElementById('slider2');
-    const colorPicker2 = document.getElementById('colorPicker2');
-	const colorPicker3 = document.getElementById('colorPicker3');
-	function splitLines() {
-	      // Get the input value from the textarea
-	      var inputText = document.getElementById('multilineInput').value;
-	
-	      // Split the input text into an array by lines
-	      var linesArray = inputText.split('\n');
-		return linesArray;
-	}
-	function genSpiral() {
-		generateRandomNoise(slider1.value,slider2.value,colorPicker1.value,colorPicker2.value, 512, 512, 100, splitLines(), colorPicker3.value);
-	}
-	
-  document.addEventListener('DOMContentLoaded', function () {
-    // Find the div with the class 'wrapper'
-    var wrapperDiv = document.querySelector('.wrapper');
-
-    // Check if the wrapperDiv is found
-    if (wrapperDiv) {
-        // Find and remove the header element within the wrapper
-        var headerElement = wrapperDiv.querySelector('header');
-        if (headerElement) {
-            headerElement.remove();
-        }
-
-        // Find and remove the footer element within the wrapper
-        var footerElement = wrapperDiv.querySelector('footer');
-        if (footerElement) {
-            footerElement.remove();
-        }
-    }
-});
-  
-</script>
+	<body>
+		<h1>WELCOME TO THE SHAPE UNIVERSE</h1>
+		<a href="index.html"><img src="ring.gif" width="640" height="120"/></a>
+		<div class="img1" >
+			<a href="golden_circlet.html"><img src="circlet.gif" width="200" height="200"/></a>
+		</div>
+		<div class="img2">
+			<a href="blue_cube.html"><img src="cube.gif" width="200" height="200"/></a>
+		</div>
+		<div class="img3">
+			<a href="green_squiggle.html"><img src="squiggle.gif" width="200" height="200"/></a>
+		</div>
+		<div class="img4">
+			<a href="red_ball.html"><img src="ball.gif" width="200" height="200"/></a>
+		</div>
+		
+		<div class="container">
+			<p>You have reached your destination!<br>The SHAPE UNIVERSE contains everything you could ever ask for, all in one place!</p>
+			
+			<h2>Origin Story</h2>
+			<p>Once, like everything, we were nothing.<br>After seven painful days, the <b>Great One Herself</b> created this land in <b>Her</b> own image, a beacon of light and awe for the masses.</p>
+			<p>You can view more detailed information <a href="genesis.html">here.</a></p>
+			
+			<h2>Why me?</h2>
+			<p>You, the one who has stumbled upon this! Relinquish your duties, rid yourself of your fears, and take a ride through the SHAPE UNIVERSE!</p>
+			
+			<h2>Where do we go from here?</h2>
+			<p>That is always the question, isn't it? So many options, how do you choose <b><a href="one.html" class="nolink">just one?</a></b><br>You don't have to! Take your time as you explore every facet of this world.</p>
+			
+		</div>
+		
+		
+		<script>if (readCookie("outcome")=="shutdown") {
+	window.location.href="404.html";
+}</script>
+	</body>
 </html>

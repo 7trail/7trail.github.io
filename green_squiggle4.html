@@ -1,0 +1,67 @@
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="main.css">
+		<link rel="stylesheet" href="mainpageimg.css">
+		<link rel="stylesheet" href="squiggleFind.css">
+		<title>Help Him!</title>
+		<style>
+			body {
+				background-color: #111111;
+			}
+			
+			.inputBox {
+				position: absolute;
+				top:370px;
+				left:200px;
+				width:368px;
+				height:50px;
+				
+			}
+			
+			input[type="text"]
+			{
+				text-align:center;
+				color:green;
+				font-size:24px;
+				font-family: "Comic Sans MS", cursive, sans-serif;
+				background-color: rgba(0,0,0,0);
+				border: solid green 3px;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		
+		<div class="container">
+			<img id="image" width="768" height="768" src="locked1text2.gif" />
+			<input class="inputBox" type="text" id="textInput">
+			<!--<button class="hiddenButton" onclick="window.location.href='green_squiggle4.html';"> </button>-->
+		</div>
+		
+		
+		<script>
+		
+			if (Math.random() < 0.25) {
+				document.getElementById('image').src = "locked1text.gif";
+			}
+		
+			document.getElementById('textInput').addEventListener('input', function () {
+			  var inputValue = this.value.trim().toUpperCase();
+			  if (inputValue === 'GENESIS') {
+				window.location.href = 'greenStory.html';
+			  }
+			  if (inputValue === 'LEGION') {
+				window.location.href = 'forwearemany.html';
+			  }
+			  if (inputValue === 'AZHZCOC') {
+				window.location.href = 'greenStoryAlt.html';
+			  }
+			  if (inputValue ==="8024") {
+				document.getElementById('image').src = "greenOutcome3.png";
+			  }
+			});
+		</script>
+	</body>
+</html>

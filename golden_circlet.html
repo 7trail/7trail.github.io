@@ -1,0 +1,175 @@
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="main.css">
+		<link rel="stylesheet" href="mainpageimg.css">
+		<link rel="stylesheet" href="standardbg.css">
+		<script src="cookies.js" type="text/javascript"></script>
+		<title>THE SHAPE UNIVERSE - GOLDEN CIRCLET</title>
+		
+		<style>
+			.color {
+				position:relative;
+			  /*padding: 60px;
+			  margin: 5px;
+			  font-size: 16px;*/
+			  width:250px;
+			  height:350px;
+			  cursor: pointer;
+			}
+			
+			.spin {
+				margin:25px;
+				background-color: RGBA(0,0,0,0.02);
+				border: none;
+			}	
+			
+			.front,
+			.back {
+				backface-visibility: hidden;
+			}
+			
+			.back1 {
+				top:0;
+				left:0;
+				position: absolute;
+			}
+			
+			.back2 {
+				top:75;
+				left:25;
+				position: absolute;
+			}
+
+			.front {
+				/*background-color: #e74c3c;  Front side color */
+				transform: rotateY(0deg);
+				transition: transform 0.5s ease;
+			}
+
+			.back {
+				/*background-color: #3498db;  Back side color */
+				transform: rotateY(180deg);
+				transition: transform 0.5s ease;
+			}
+			
+			.b {
+				border:3px solid white;
+				width:240px;
+				font-size:16px;
+				
+				background-color:black;
+				color:white;
+				font-family: "Comic Sans MS", cursive, sans-serif;
+			}
+			
+			.mystery {
+				transform: rotateZ(180deg);
+			}
+
+			.spin:hover .front {
+				transform: rotateY(-180deg);
+			}
+
+			.spin:hover .back {
+				transform: rotateY(0deg);
+			}
+		</style>
+		
+	</head>
+
+	<body>
+		<h1>WELCOME TO THE SHAPE UNIVERSE</h1>
+		<a href="index.html"><img src="ring.gif" width="640" height="120"/></a>
+		<div class="img1" >
+			<img src="circlet.gif" width="200" height="200"/>
+		</div>
+		<div class="img2">
+			<img src="circlet.gif" width="200" height="200"/>
+		</div>
+		<div class="img3">
+			<img src="circlet.gif" width="200" height="200"/>
+		</div>
+		<div class="img4">
+			<img src="circlet.gif" width="200" height="200"/>
+		</div>
+		
+		<div class="container">
+			<h2>Learn Your Colors!</h2>
+			<p>Look at the cards to learn more about your favorite color!</p>
+			<p>BONUS: There's a super secret combination... if you find it, you'll win a prize!</p>
+			<p><b>Example: Try "Red, Green, Red"!</b></p>
+			<br>
+			<div id="cardholder">
+			  <button class="color spin" id="red"onclick="recordPush('R')"><img class="front" src="rFront.png"><img class="back back1" src="rBack.png"><img width="200" height="200" class="back back2" src="ball.gif"></button>
+			  <button class="color spin" id="blue" onclick="recordPush('B')"><img class="front" src="bFront.png"><img class="back back1" src="bBack.png"><img width="200" height="200"  class="back back2" src="cube.gif"></button>
+			  <button class="color spin" id="green" onclick="recordPush('G')"><img class="front" src="gFront.png"><img class="back back1" src="gBack.png"><img width="200" height="200"  class="back back2" src="squiggle.gif"></button>
+			  <button class="color spin" id="yellow" onclick="recordPush('Y')"><img class="front" src="yFront.png"><img class="back back1" src="yBack.png"><img width="200" height="200"  class="back back2" src="circlet.gif"></button>
+			</div>
+
+			<div>
+			  <p style="font-size:20px;">Button Presses: <span id="buttonPresses"></span></p>
+			  <div style="display:flex; align-content:center;justify-content: center;"><button class ="b"onclick="submit()">Submit!</button> <p>--</p> <button class ="b" onclick="reset()">Reset</button></div>
+			</div>
+
+			<script>
+			  // Variable to store the button presses
+			  let buttonPresses = '';
+			  let displayString = '';
+
+			  // Function to record button press and update display
+			  function recordPush(color) {
+				buttonPresses += color;
+				if (color == "R") {
+					displayString+='<span style="color:red;">=</span>';
+				}
+				if (color == "G") {
+					displayString+='<span style="color:green;">=</span>';
+				}
+				if (color == "B") {
+					displayString+='<span style="color:blue;">=</span>';
+				}
+				if (color == "Y") {
+					displayString+='<span style="color:yellow;">=</span>';
+				}
+				if (color == "C") {
+					displayString+='<span style="color:cyan;">=</span>';
+				}
+				updateDisplay();
+			  }
+
+			  // Function to update the display
+			  function updateDisplay() {
+				document.getElementById('buttonPresses').innerHTML = displayString;
+			  }
+			  
+			  function submit() {
+				if (buttonPresses == "RGR") {
+					alert("You're getting it! Now find out the real solution!");
+				} else if (buttonPresses == "YBGR") {
+					window.location.href = 'yellowStory.html';
+				} else if (buttonPresses == "RGGBYRGBBR") {
+					window.location.href = 'door.html';
+				} else if (buttonPresses == "YBGRC") {
+					window.location.href = 'doorAwakened.html';
+				} else if (buttonPresses == "RRRR" || buttonPresses == "GGGG" || buttonPresses == "BBBB" ||buttonPresses == "YYYY") {
+					window.location.href = 'retcon.html';
+				} else if (buttonPresses == "RRBBGGYY" || buttonPresses == "YYYYYYYYGGRRRR") {
+					document.getElementById('cardholder').innerHTML += '<button class="color spin corner" id="cyan" onclick="recordPush(\'C\')"><img class="mystery front" src="cFront.png"><img class="mystery back back1" src="cBack.png"><img width="200" height="200"  class="back back2" src="hedron.gif"></button>';
+				}else{
+					alert(":‡?*88†;‡;(:45(†8(;45*;45;. 95:2816*†;48-‡†8?");
+				}
+				reset();
+			  }
+
+			  // Function to reset the button presses
+			  function reset() {
+				buttonPresses = '';
+				displayString = '';
+				updateDisplay();
+			  }
+			</script>
+			
+		</div>
+	</body>
+</html>

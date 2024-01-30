@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="main.css">
+    <title>1</title>
+    <style>
+	
+        .random-number {
+            position: absolute;
+            font-size: 24px;
+        }
+		
+		body {
+			color: yellow;
+			background-color: #111111;
+		}
+    </style>
+</head>
+<body>
+    <script>
+        // Function to generate a random position, size, and color for the number
+        function getRandomProperties() {
+            var screenWidth = window.innerWidth;
+            var screenHeight = window.innerHeight;
+
+            var randomX = Math.floor(Math.random() * (screenWidth - 50));
+            var randomY = Math.floor(Math.random() * (screenHeight - 20));
+            var randomSize = Math.floor(Math.random() * (40 - 10) + 10); // Random size between 10 and 40
+            var randomColor = '#' + Math.floor(Math.random()*16777215).toString(16); // Random hex color
+
+            return { x: randomX, y: randomY, size: randomSize, color: randomColor };
+        }
+
+        // Function to update the position, size, and color of the number
+        function updateNumberProperties(element) {
+            var properties = getRandomProperties();
+			element.textContent = Math.floor(Math.random()*100)  == 0 ?  "one": '1';
+            element.style.left = properties.x + 'px';
+            element.style.top = properties.y + 'px';
+            element.style.fontSize = properties.size + 'px';
+            //element.style.color = properties.color;
+        }
+
+        // Function to continuously update the position, size, and color of the number every 500 milliseconds
+        function createNewNumber() {
+            var body = document.body;
+
+            // Create and append a new number element to the body
+            var numberElement = document.createElement('div');
+            numberElement.className = 'random-number';
+            numberElement.textContent = Math.floor(Math.random()*100)  == 0 ?  "one": '1';
+
+            body.appendChild(numberElement);
+
+            // Initial setup for the new number
+            updateNumberProperties(numberElement);
+
+            // Set interval for updating properties of the existing numbers
+            setInterval(function() {
+                updateNumberProperties(numberElement);
+            }, 500);
+        }
+
+        // Initial setup when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            createNewNumber();
+			createNewNumber();
+			createNewNumber();
+			createNewNumber();
+			createNewNumber();
+			createNewNumber();
+			createNewNumber();
+			createNewNumber();
+			createNewNumber();
+			createNewNumber();
+			createNewNumber();
+			createNewNumber();
+			createNewNumber();
+			createNewNumber();
+			createNewNumber();
+			createNewNumber();
+        });
+    </script>
+</body>
+</html>

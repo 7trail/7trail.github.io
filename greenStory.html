@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Treasure</title>
+	<link rel="stylesheet" href="main.css">
+    <style>
+        body {
+			color:white;
+			font-family: "Comic Sans MS", cursive, sans-serif;
+			background-color: #111111;
+		}
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+		
+		#left {
+			padding-left:50px;
+			padding-right:50px;
+			text-align: left;
+		}
+		.img1 {
+			position: absolute;
+			top:600px;
+			left: 650px;
+		}
+		
+		#yourturn {
+			float:right;
+			padding-left:20px;
+			padding-right:20px;
+			padding-bottom:20px;
+			border: 3px solid white;
+		}
+    </style>
+</head>
+<body>
+    <h1 style="color:green;">"The Treasure"</h1>
+	<h2>By ???</h2>
+    <ul id="left">
+        <p>Once, buried deep within Wayfarer's Grove, there was a treasure. This treasure had proven elusive, so elusive that nobody had been able to locate it.</p>
+		<p>Until he came along. From a young age, he had always been fascinated by the treasure. What could it be? He <b>had</b> to know.</p>
+		<p>And so, he spent his whole life getting ready for the expedition, the day he would finally lay claim to the treasure. His time was spent studying the Grove, looking for possible locations, preparing for anything that might come his way.</p>
+		<p>Finally, the day came: he was ready. He had a good idea of where the treasure was placed, and he had everything he needed. He said goodbye to his family and departed, knowing fully that he may never see them again.</p>
+		<p>But he had to push those feelings aside- he knew his purpose. After four week's travel, he reached Wayfarer's Grove.</p>
+		<br>
+		<p>Bombarded upon entry by illusions and misdirection, he struggled to figure out where to go. His maps were rendered useless- the Grove was nothing like what he expected!</p>
+		<p>It took experimentation to break through the mystery. He wandered in any direction, every direction, until he found what he desired- and find it he did.</p>
+		<p>Stumbling across a grassy hill, a small hatch stuck out the side. He opened the hatch to see a dark corridor. Crawling into the hatch, feeling his way through the corridor, he began to feel a door in front of him- a cold door.</p>
+		<p>Runes began to glow on the door, signaling magical protection. This <i>had</i> to be it- he had found the treasure! But how does he get in the room?</p>
+		<p>Slowly, the runes shifted to letters, forming words:</p>
+		<br>
+		<blockquote>
+			<strong>
+			<p>I'm taken from a mine, shaped by a hand,</p>
+			<p>In ancient script, I make my stand.</p>
+			<p>Unravel my mystery, unlock the gate,</p>
+			<p>Speak my answer, determine your fate.</p>
+			</strong>
+		</blockquote>
+		<div id="yourturn">
+			<h2 style="color:green;">Your Turn!</h2>
+			<h3>Can you solve the riddle?</h3>
+			<div id="user-input-container">
+				<input type="text" id="user-input" onkeydown="search(this)" placeholder="Ex: A rock, a cube...">
+				<button id="send-button" onclick="sendMessage()">Send</button>
+			</div>
+		</div>
+		<br>
+		<p>A riddle! He knew this one- it was <u>- ---</u>!</p>
+		<p>Paper unfurled beside the door, awaiting an answer. He took out his pen and signed "<u>- ---</u>"...</p>
+		<p>...and the door opened! He was able to enter the dimly lit room.</p>
+		<p>Sitting before him was a massive pile of gems, gold, and valuable trinkets. He knew it would make him <b>rich</b> if he sold it.</p>
+		<p>"The treasure is mine! I can't wait to return to my family with it. We will live a long and prosperous life!"</p>
+		<p>As he inched closer to the treasure, the door SEALED behind him, rendering him trapped. He banged on the door, screaming for help, yet none came.</p>
+		<br>
+		<p>He knew death was inevitable.</p>
+		<p>As he lay waiting to run out of oxygen, he pondered the riddle. What did he get wrong?</p>
+		<p>In his last moments, he realized his fatal mistake- <u>glz rhcuzt cljnpx lrbz vzzh utoggzh oh tnhzc, glz bzty crfz tnhzc glz toxxpz urc tzrx oh...</u></p>
+		<p>...and the treasure claimed another soul.</p>
+    </ul>
+	
+	<script>
+	
+		function search(ele) {
+			if(event.key === 'Enter') {
+				sendMessage();     
+			}
+		}
+	
+		var success = false;
+		function sendMessage() {
+			var userInput = document.getElementById("user-input").value;
+			if (userInput.toLowerCase().includes("key") && !success) {
+				success = true;
+				var linkElement = document.createElement("a");
+				linkElement.href = "two.html";
+				linkElement.textContent = "Yippee, you did it! Here's your prize!";
+				var myDiv = document.getElementById("yourturn");
+				myDiv.appendChild(linkElement);
+			}
+		}
+	</script>
+	
+	<div class="img1" >
+		<img src="squiggle.gif" width="200" height="200"/>
+	</div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+body {
+	position: relative;
+	padding-top: 25px;
+	text-align: center;
+	
+	color:white;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	image-rendering: pixelated;
+	  image-rendering: -moz-crisp-edges;
+	  image-rendering: crisp-edges;
+	  font-smooth: never;
+-webkit-font-smoothing : none;
+}
